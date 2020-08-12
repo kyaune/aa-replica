@@ -1,0 +1,60 @@
+1) create circle in the project, rescale it, color it (name it rotator)
+2) change background in camera
+3) make script Rotator, remind about Time.deltaTime
+4) add circlecollider, add tag "rotator"
+5) create 2d obj -> sprite (sprite - circle)
+create child UISprite (spear)
+6) add colliders to them, (triggers?), rigidbody to pin, kinematic it
+
+to shoot:
+7) Pin script
+	remind about MovePosition, Vectors, 
+8) OnTrigger:
+	add bool isPinned
+	remind about colliders, tags
+	SetParent()
+9) Spawner:
+	duplicate pin, delete spear (and all comps), make more transcendent, rename
+	to spawner
+	move pin to prefabs
+	add Spawner script (Input, Instantiate)
+10) change smth on collision:
+	col.GetComponent<Rotator>().speed *= -1;
+11) EndGame:
+	add tag "pin" to prefab
+	add col.tag == "pin" -> endgame
+12) add GameManager script
+	EndGame method
+	refer it in Pin via FindObjectOfType
+	add refs to rotator, spawner.enabled = false;
+13) animation:
+	 public Animator animator;
+ 	animator.SetTrigger("EndGame");
+	create idle anim
+	click "record"
+	drag line to 0;30
+	change props (bg-color and size) a little bit, delete new one
+	add endgame
+	change bg-color and size (red, 2.4)
+	drag line to 0'30
+	change size to (3.8)
+	stop recording
+14) transitions:
+	open animator window
+	make transition b/n idle and end
+	add EndGame parametr
+	add it as condotion, remove exit time
+	remove loop time from endgame
+	drag animator
+	test it!
+15)add restartlevel
+	add anim event with func RestartLevel();
+16) score:
+	create text,
+	canvas -> render mode world space
+	rescale it, replace it
+	text -> anchor mode -> holding alt choose bottom right
+	make canvas to wrap around our circle
+	change font size, alignment, font
+	
+	
